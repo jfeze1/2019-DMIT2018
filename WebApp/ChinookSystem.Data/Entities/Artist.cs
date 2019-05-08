@@ -20,8 +20,8 @@ namespace ChinookSystem.Data.Entities
         [Key]
         public int ArtistId { get; set; } // This is an automated implemented property
 
-        // Because Name is a nullable we make sure we handle it in our class by creating a private property _Name
-        //Always Fully implement nullable string property
+        // Because Name is a nullable field we make sure we handle it in our class by creating a private property _Name
+        //Always Fully implement nullable field string property
         public string Name
         {
             get
