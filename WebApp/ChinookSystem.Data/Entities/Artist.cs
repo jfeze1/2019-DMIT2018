@@ -40,6 +40,8 @@ namespace ChinookSystem.Data.Entities
                 }
             }
         }
-
+        //Navigation properties (Relation map)
+        //Artist has album as a child and can have many children that is why we use an ICollection as data type
+        public virtual ICollection<Album> Albums { get; set; }
     }
 }
