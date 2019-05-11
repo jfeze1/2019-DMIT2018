@@ -18,6 +18,8 @@ namespace ChinookSystem.Data.Entities
         [Key]
         public int TrackId { get; set; }
 
+        [Required(ErrorMessage ="The Name is a required")]
+        [StringLength(200, ErrorMessage ="Name should have a maximum of 200 characters")]
         public string Name { get; set; }
 
         public int? AlbumId { get; set; }
@@ -26,6 +28,7 @@ namespace ChinookSystem.Data.Entities
 
         public int? GenreId { get; set; }
 
+        [StringLength(220, ErrorMessage ="The composer should have a maximum of 220 characters")]
         public string Composer
         {
             get
@@ -45,10 +48,15 @@ namespace ChinookSystem.Data.Entities
             }
         }
 
+        [Required(ErrorMessage ="Miliseconds is required")]
+        [Range(0, int.MaxValue, ErrorMessage ="Invalid miliseconds")]
         public int Milliseconds { get; set; }
 
+        [Range(0, int.MaxValue, ErrorMessage ="Invalid bytes")]
         public int? Bytes { get; set; }
 
+        [Required(ErrorMessage ="The unit price is required")]
+        [Range(0.00, 99999999.99, ErrorMessage ="The value of the unit price should be in between 0.00 and 99999999.99, both values included")]
         public decimal UnitPrice { get; set; }
 
         //Navigational Properties
