@@ -48,11 +48,11 @@
                     <a class="navbar-brand" runat="server" href="~/">Application name</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    <%--<ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
+                    </ul>--%>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -69,6 +69,29 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
+                   <%-- Put our menu here %--%>
+                    <asp:Menu ID="navMenu" runat="server"
+                        BackColor="#222222"
+                        BorderColor-ForeColor="Red"
+                        StaticMenuItemStyle-VerticalPadding="10px"
+                        StaticMenuItemStyle-HorizontalPadding="10px"
+                        RenderingMode="List"
+                        Orientation="Horizontal"
+                        DynamicMenuItemStyle-ForeColor="#999999"
+                        DynamicMenyStyle-BackColor="#222222">
+                     </asp:Menu>
+                     <Items>
+                         <asp:MenuItem Text="Home"
+                             NavigateUrl="~/Default.aspx"/>
+                         <asp:MenuItem Text="About"
+                             NavigateUrl="~/About.aspx"/>
+                         <asp:MenuItem Text="Contact"
+                             NavigateUrl="~/Contact.aspx"/>
+                         <asp:MenuItem Text="Samples" value="Samples"
+                             NavigateUrl="~/Default.aspx"/>
+                         <asp:MenuItem Text="Filter Search"
+                             NavigateUrl="~/SamplePages/FilterSearch.aspx" />
+                     </Items>
                 </div>
             </div>
         </div>

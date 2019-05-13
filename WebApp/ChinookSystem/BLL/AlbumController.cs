@@ -37,5 +37,17 @@ namespace ChinookSystem.BLL
                 return context.Albums.Find(albumid);
             }
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<Album> Album_GetByArtist(int artistid)
+        {
+            using (var context = new ChinookSystemContext())
+            {
+                var results = from x in context.Albums
+                              where x.ArtistId == artistid
+                              select x;
+                return results.ToList();
+            }
+        }
     }
 }
